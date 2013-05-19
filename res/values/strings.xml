@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Z-Cloud Controler</string>
+    <string name="title_section2">Devices</string>
+    <string name="title_section1">Scenes</string>
+    <string name="title_activity_update">UpdateActivity</string>
+    <string name="menu_account">Account</string>
+    <string name="menu_update">Update</string>
+
+</resources>
