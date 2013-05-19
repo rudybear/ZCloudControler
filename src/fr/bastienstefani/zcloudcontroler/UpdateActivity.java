@@ -1,4 +1,4 @@
-package com.example.zwavecontroler;
+package fr.bastienstefani.zcloudcontroler;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

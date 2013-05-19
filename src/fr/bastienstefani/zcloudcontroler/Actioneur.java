@@ -1,4 +1,4 @@
-package com.example.zwavecontroler;
+package fr.bastienstefani.zcloudcontroler;
 
 public class Actioneur {
 	public int id;

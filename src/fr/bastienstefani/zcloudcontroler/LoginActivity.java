@@ -1,4 +1,4 @@
-package com.example.zwavecontroler;
+package fr.bastienstefani.zcloudcontroler;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
