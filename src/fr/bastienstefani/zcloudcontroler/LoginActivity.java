@@ -34,7 +34,7 @@ public class LoginActivity extends Activity {
 	private UserLoginTask mAuthTask = null;
 
 	// Values for email and password at the time of the login attempt.
-	private String mEmail;
+	private String mLogin;
 	private String mPassword;
 	private String mPort;
 
@@ -53,9 +53,9 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 
 		// Set up the login form.
-		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
+		mLogin = getIntent().getStringExtra(EXTRA_EMAIL);
 		mEmailView = (EditText) findViewById(R.id.email);
-		mEmailView.setText(mEmail);
+		mEmailView.setText(mLogin);
 
 		mPortView = (EditText) findViewById(R.id.port);
 
@@ -108,7 +108,7 @@ public class LoginActivity extends Activity {
 		mPortView.setError(null);
 
 		// Store values at the time of the login attempt.
-		mEmail = mEmailView.getText().toString();
+		mLogin = mEmailView.getText().toString();
 		mPassword = mPasswordView.getText().toString();
 		mPort = mPortView.getText().toString();
 
@@ -143,8 +143,7 @@ public class LoginActivity extends Activity {
 			cancel = true;
 		}
 
-		// Check for a valid email address.
-		if (TextUtils.isEmpty(mEmail)) {
+		if (TextUtils.isEmpty(mLogin)) {
 			mEmailView.setError(getString(R.string.error_field_required));
 			focusView = mEmailView;
 			cancel = true;
@@ -212,12 +211,12 @@ public class LoginActivity extends Activity {
 	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			String toEncode = mEmail + ":" + mPassword;
+			String toEncode = mLogin + ":" + mPassword;
 			String base64 = Base64.encodeToString(toEncode.getBytes(),
 					Base64.DEFAULT);
 			String loginPath = Environment.getExternalStorageDirectory()
 					+ "/Zwave/login.xml";
-			String data = "<datas><login value=\"" + mEmail
+			String data = "<datas><login value=\"" + mLogin
 					+ "\" /><header value=\"Basic " + base64
 					+ "\" /><port value=\"" + mPort + "\" /></datas>";
 			FileIO.writeToFile(loginPath, data);

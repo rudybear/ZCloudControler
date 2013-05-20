@@ -4,8 +4,21 @@
     <string name="app_name">Z-Cloud Controler</string>
     <string name="title_section2">Devices</string>
     <string name="title_section1">Scenes</string>
-    <string name="title_activity_update">UpdateActivity</string>
+    <string name="title_activity_update">Update</string>
     <string name="menu_account">Account</string>
     <string name="menu_update">Update</string>
+    <string name="title_activity_scene_fragment">SceneFragment</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_visualisation">Visualisation</string>
+    <string name="title_activity_devices_fragment">DevicesFragment</string>
+    <string name="dialogName">Actions</string>
+    <string name="progressTitle">Please wait</string>
+    <string name="progressText">Retrieving datas</string>
+    <string name="scenesStart">Start</string>
+    <string name="scenesCancel">Cancel</string>
+    <string name="devicesOpen">Open</string>
+    <string name="devicesClose">Close</string>
+    <string name="devicesCancel">Cancel</string>
 
 </resources>

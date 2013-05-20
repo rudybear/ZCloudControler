@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Z-Cloud Controler</string>
+    <string name="title_section3">Visualisation</string>
+    <string name="title_section2">Dispositifs</string>
+    <string name="title_section1">Scènes</string>
+    <string name="title_activity_update">Mise à jours</string>
+    <string name="menu_account">Compte</string>
+    <string name="menu_update">MAJ</string>
+    <string name="title_activity_scene_fragment">SceneFragment</string>
+    <string name="title_activity_visualisation">Visualisation</string>
+    <string name="title_activity_devices_fragment">DevicesFragment</string>
+    <string name="dialogName">Actions</string>
+    <string name="progressTitle">Patientez</string>
+    <string name="progressText">Recupération des données en cours</string>
+    <string name="scenesStart">Lancer</string>
+    <string name="scenesCancel">Retour</string>
+    <string name="devicesOpen">Ouvrir</string>
+    <string name="devicesClose">Fermer</string>
+    <string name="devicesCancel">Retour</string>
+
+</resources>

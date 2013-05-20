@@ -87,21 +87,6 @@ public class PostCommand {
 		resultString = convertStreamToString(is);
 	}
 
-
-	/*
-	 * protected org.apache.http.conn.ssl.SSLSocketFactory
-	 * createAdditionalCertsSSLSocketFactory() { try { final KeyStore ks =
-	 * KeyStore.getInstance("BKS");
-	 * 
-	 * final InputStream in = context.getResources().openRawResource(
-	 * R.raw.certs); try { ks.load(in, context.getString(R.string.store_pass)
-	 * .toCharArray()); } finally { in.close(); }
-	 * 
-	 * return new AdditionalKeyStoresSSLSocketFactory(ks);
-	 * 
-	 * } catch (Exception e) { throw new RuntimeException(e); } }
-	 */
-
 	private static String convertStreamToString(InputStream is) {
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));

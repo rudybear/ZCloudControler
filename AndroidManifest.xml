@@ -3,7 +3,7 @@
     package="fr.bastienstefani.zcloudcontroler"
     android:versionCode="1"
     android:versionName="1.0" >
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -33,6 +33,27 @@
         <activity
             android:name="fr.bastienstefani.zcloudcontroler.UpdateActivity"
             android:label="@string/title_activity_update" >
+        </activity>
+        <activity
+            android:name="fr.bastienstefani.zcloudcontroler.SceneFragment"
+            android:label="@string/title_activity_scene_fragment" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.support.v4.app.FragmentActivity" />
+        </activity>
+        <activity
+            android:name="fr.bastienstefani.zcloudcontroler.Visualisation"
+            android:label="@string/title_activity_visualisation" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.support.v4.app.FragmentActivity" />
+        </activity>
+        <activity
+            android:name="fr.bastienstefani.zcloudcontroler.DevicesFragment"
+            android:label="@string/title_activity_devices_fragment" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.support.v4.app.FragmentActivity" />
         </activity>
     </application>
 

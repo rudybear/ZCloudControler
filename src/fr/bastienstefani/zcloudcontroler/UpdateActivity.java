@@ -45,8 +45,8 @@ public class UpdateActivity extends Activity {
 		command = new PostCommand(
 				"https://z-cloud.z-wave.me/Config/Configuration/Get", this);
 
-		pd = ProgressDialog.show(this, "Please wait...",
-				"Downloading datas...", true, false);
+		pd = ProgressDialog.show(this, getString(R.string.progressTitle),
+				getString(R.string.progressText), true, false);
 		new Thread(new Runnable() {
 			public void run() {
 				Message msg = null;

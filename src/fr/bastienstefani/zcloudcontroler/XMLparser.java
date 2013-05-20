@@ -39,7 +39,6 @@ public class XMLparser {
 			{
 				Element deviceElt = (Element) devicesNodes.item(i);
 				name = deviceElt.getAttribute("description");
-				Log.v("Parser", name);
 				id = Integer.parseInt(deviceElt.getAttribute("device"));
 				
 				act = new Actioneur(id, name);
