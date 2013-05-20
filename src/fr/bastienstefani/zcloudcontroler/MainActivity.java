@@ -26,14 +26,14 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends FragmentActivity {
 
@@ -91,7 +91,7 @@ public class MainActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
@@ -204,7 +204,7 @@ public class MainActivity extends FragmentActivity {
 			return rootView;
 		}
 	}
-	
+
 	public static class InterrupteurFragment extends Fragment {
 		/**
 		 * The fragment argument representing the section number for this
@@ -213,7 +213,7 @@ public class MainActivity extends FragmentActivity {
 		public static final String ARG_SECTION_NUMBER = "section_number";
 
 		ArrayList<Actioneur> actioneurs;
-		
+
 		public InterrupteurFragment() {
 		}
 
@@ -242,8 +242,7 @@ public class MainActivity extends FragmentActivity {
 
 					String item = lv.getItemAtPosition(pos).toString();
 					final int idActioneur = getActioneurByName(item);
-					Button openButton = (Button) dialog
-							.findViewById(R.id.open);
+					Button openButton = (Button) dialog.findViewById(R.id.open);
 					openButton.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View v) {
@@ -272,18 +271,21 @@ public class MainActivity extends FragmentActivity {
 			});
 			return lv;
 		}
-		
+
 		private int getActioneurByName(String name) {
-			for(int i = 0; i<actioneurs.size(); i++)
-			{
-				if(actioneurs.get(i).getName().equals(name))
+			for (int i = 0; i < actioneurs.size(); i++) {
+				if (actioneurs.get(i).getName().equals(name))
 					return actioneurs.get(i).getId();
 			}
 			return -1;
 		}
-		
+
 		private void ExecActioneur(int id, int value) {
-			final PostCommand command = new PostCommand("https://z-cloud.z-wave.me/ZWaveAPI/Run/devices%5B"+ id +"%5D.instances%5B0%5D.commandClasses%5B37%5D.Set%28"+ value +"%29", getActivity());
+			final PostCommand command = new PostCommand(
+					"https://z-cloud.z-wave.me/ZWaveAPI/Run/devices%5B"
+							+ id
+							+ "%5D.instances%5B0%5D.commandClasses%5B37%5D.Set%28"
+							+ value + "%29", getActivity());
 
 			new Thread(new Runnable() {
 				public void run() {
@@ -327,6 +329,10 @@ public class MainActivity extends FragmentActivity {
 			scenes = XMLparser.getScenes();
 			ArrayList<String> names = new ArrayList<String>();
 			for (int i = 0; i < scenes.size(); i++) {
+				if (scenes.get(i).getName().length() > 25) {
+					String name = replaceLast(scenes.get(i).getName(), " ", "\n");
+					scenes.get(i).setName(name);
+				} 
 				names.add(scenes.get(i).getName());
 				Log.v("Scenes", scenes.get(i).getName());
 			}
@@ -368,18 +374,28 @@ public class MainActivity extends FragmentActivity {
 			});
 			return lv;
 		}
-		
+
 		private int getSceneByName(String name) {
-			for(int i = 0; i<scenes.size(); i++)
-			{
-				if(scenes.get(i).getName().equals(name))
+			for (int i = 0; i < scenes.size(); i++) {
+				if (scenes.get(i).getName().equals(name))
 					return scenes.get(i).getId();
 			}
 			return -1;
 		}
-		
+
+		private String replaceLast(String string, String from, String to) {
+			int lastIndex = string.lastIndexOf(from);
+			if (lastIndex < 0)
+				return string;
+			String tail = string.substring(lastIndex).replaceFirst(from, to);
+			Log.v("Replace", string.substring(0, lastIndex) + tail);
+			return string.substring(0, lastIndex) + tail;
+		}
+
 		private void ExecScene(int id) {
-			final PostCommand command = new PostCommand("https://z-cloud.z-wave.me/Scene/Activate/"+id, getActivity());
+			final PostCommand command = new PostCommand(
+					"https://z-cloud.z-wave.me/Scene/Activate/" + id,
+					getActivity());
 
 			new Thread(new Runnable() {
 				public void run() {
